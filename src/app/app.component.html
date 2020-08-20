@@ -1,85 +1,14 @@
 <div class="container">
   <div class="box-container">
     <button
+      *ngFor="let box of boxes; let i = index"
       class="box"
       [ngClass]="{
-        xClass: isXClicked(11),
-        oClass: isOClicked(11)
+        xClass: isXClicked(boxes[i]),
+        oClass: isOClicked(boxes[i])
       }"
-      [disabled]="isXClicked(11) || isOClicked(11)"
-      (click)="onClick(11)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(12),
-        oClass: isOClicked(12)
-      }"
-      [disabled]="isXClicked(12) || isOClicked(12)"
-      (click)="onClick(12)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(13),
-        oClass: isOClicked(13)
-      }"
-      [disabled]="isXClicked(13) || isOClicked(13)"
-      (click)="onClick(13)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(21),
-        oClass: isOClicked(21)
-      }"
-      [disabled]="isXClicked(21) || isOClicked(21)"
-      (click)="onClick(21)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(22),
-        oClass: isOClicked(22)
-      }"
-      [disabled]="isXClicked(22) || isOClicked(22)"
-      (click)="onClick(22)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(23),
-        oClass: isOClicked(23)
-      }"
-      [disabled]="isXClicked(23) || isOClicked(23)"
-      (click)="onClick(23)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(31),
-        oClass: isOClicked(31)
-      }"
-      [disabled]="isXClicked(31) || isOClicked(31)"
-      (click)="onClick(31)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(32),
-        oClass: isOClicked(32)
-      }"
-      [disabled]="isXClicked(32) || isOClicked(32)"
-      (click)="onClick(32)"
-    ></button>
-    <button
-      class="box"
-      [ngClass]="{
-        xClass: isXClicked(33),
-        oClass: isOClicked(33)
-      }"
-      [disabled]="isXClicked(33) || isOClicked(33)"
-      (click)="onClick(33)"
+      [disabled]="isXClicked(boxes[i]) || isOClicked(boxes[i])"
+      (click)="onClick(boxes[i])"
     ></button>
     <div *ngIf="winnerData" class="game-over">
       Player {{ winner }} is the WINNER!

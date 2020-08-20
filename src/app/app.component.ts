@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "XandO";
+  boxes = [11, 12, 13, 21, 22, 23, 31, 32, 33];
   x = [];
   o = [];
   userMode = "X";
