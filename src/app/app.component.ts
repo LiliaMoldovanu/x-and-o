@@ -9,8 +9,7 @@ export class AppComponent {
   title = "XandO";
   x = [];
   o = [];
-  oMode = false;
-  xMode = true;
+  userMode = "X";
   winner;
   winnerData;
   users = [
@@ -18,18 +17,12 @@ export class AppComponent {
     { user: "X", moves: this.x },
   ];
 
-  onChangeToOMode() {
-    this.oMode = true;
-    this.xMode = false;
-  }
-
-  onChangeToXMode() {
-    this.oMode = false;
-    this.xMode = true;
+  onChangeUserMode(mode: string) {
+    this.userMode = mode;
   }
 
   onClick(id: number) {
-    if (this.oMode) {
+    if (this.userMode === "O") {
       this.o.push(id);
     } else {
       this.x.push(id);

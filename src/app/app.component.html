@@ -89,15 +89,19 @@
   <div class="btn-container">
     <button
       class="btn"
-      [ngStyle]="{ 'background-color': xMode ? 'rgb(48, 108, 185)' : 'brown' }"
-      (click)="onChangeToXMode()"
+      [ngStyle]="{
+        'background-color': userMode === 'X' ? 'rgb(48, 108, 185)' : 'brown'
+      }"
+      (click)="onChangeUserMode('X')"
     >
       X
     </button>
     <button
       class="btn"
-      [ngStyle]="{ 'background-color': oMode ? 'rgb(48, 108, 185)' : 'brown' }"
-      (click)="onChangeToOMode()"
+      [ngStyle]="{
+        'background-color': userMode === 'O' ? 'rgb(48, 108, 185)' : 'brown'
+      }"
+      (click)="onChangeUserMode('O')"
     >
       O
     </button>
