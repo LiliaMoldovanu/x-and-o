@@ -13,6 +13,9 @@
     <div *ngIf="winnerData" class="game-over">
       Player {{ winner }} is the WINNER!
     </div>
+    <div *ngIf="isDraw" class="game-over">
+      Game over!
+    </div>
   </div>
 
   <div class="btn-container">

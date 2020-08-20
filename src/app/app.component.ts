@@ -13,6 +13,7 @@ export class AppComponent {
   userMode = "X";
   winner;
   winnerData;
+  isDraw = false;
   users = [
     { user: "O", moves: this.o },
     { user: "X", moves: this.x },
@@ -30,6 +31,9 @@ export class AppComponent {
     }
     this.winnerData = this.isLine();
     this.winner = this.winnerData["user"];
+    if (this.o.length + this.x.length === 9 && !this.winner) {
+      this.isDraw = true;
+    }
   }
 
   isXClicked(id: number) {
@@ -124,6 +128,7 @@ export class AppComponent {
       { user: "X", moves: this.x },
     ];
     this.winnerData = null;
+    this.isDraw = false;
     this.isLine();
   }
 }
