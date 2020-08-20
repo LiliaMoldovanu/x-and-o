@@ -81,7 +81,7 @@
       [disabled]="isXClicked(33) || isOClicked(33)"
       (click)="onClick(33)"
     ></button>
-    <div *ngIf="winner" class="game-over">
+    <div *ngIf="winnerData" class="game-over">
       Player {{ winner }} is the WINNER!
     </div>
   </div>

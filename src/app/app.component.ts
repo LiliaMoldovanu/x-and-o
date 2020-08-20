@@ -12,6 +12,7 @@ export class AppComponent {
   oMode = false;
   xMode = true;
   winner;
+  winnerData;
   users = [
     { user: "O", moves: this.o },
     { user: "X", moves: this.x },
@@ -33,14 +34,8 @@ export class AppComponent {
     } else {
       this.x.push(id);
     }
-    console.log(this.o, this.x);
-    this.isLine();
-    // console.log("winnwer", this.winner);
-    if (this.isLine()) {
-      this.winner = this.isLine()["user"];
-    }
-    console.log(this.isLine()["user"]);
-    console.log("winnwer", this.winner);
+    this.winnerData = this.isLine();
+    this.winner = this.winnerData["user"];
   }
 
   isXClicked(id: number) {
@@ -124,17 +119,17 @@ export class AppComponent {
   }
 
   isLine() {
-    // console.error("hello", this.users[0]["moves"]);
     return this.isVLine() || this.isHLine() || this.isDLine();
   }
 
   onReset() {
     this.o = [];
     this.x = [];
-    this.winner = "";
+    this.users = [
+      { user: "O", moves: this.o },
+      { user: "X", moves: this.x },
+    ];
+    this.winnerData = null;
     this.isLine();
-    // console.log(this.x, this.o);
-    // console.log(this.users[0]["moves"]);
-    // console.log(this.isLine());
   }
 }
