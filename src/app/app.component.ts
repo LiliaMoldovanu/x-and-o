@@ -85,25 +85,32 @@ export class AppComponent {
   }
 
   isDLine() {
+    // set the gap between boxes for each diagonal
     let diagonal = [
       {
-        first: 11,
-        second: 22,
+        firstGap: 11,
+        secondGap: 22,
       },
       {
-        first: 9,
-        second: 18,
+        firstGap: 9,
+        secondGap: 18,
       },
     ];
+    // iterate both users
     for (let r = 0; r < this.users.length; r++) {
+      // verify for each of two diagonals
       for (let set = 0; set < diagonal.length; set++) {
+        // iterate through all moves made and stored in moves array
         for (let i = 0; i < this.users[r].moves.length; i++) {
+          // verify if in moves array there is first Match(box) for diagonal line
           let firstMatch = this.users[r].moves.find(
-            (item) => item === this.users[r].moves[i] + diagonal[set].first
+            (item) => item === this.users[r].moves[i] + diagonal[set].firstGap
           );
+          // verify if in moves array there is second Match(box) for diagonal line
           let secondMatch = this.users[r].moves.find(
-            (item) => item === this.users[r].moves[i] + diagonal[set].second
+            (item) => item === this.users[r].moves[i] + diagonal[set].secondGap
           );
+          // if there are both matches return user that had line and the line(all three boxes)
           if (firstMatch && secondMatch) {
             return {
               user: this.users[r].user,
